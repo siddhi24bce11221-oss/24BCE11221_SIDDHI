@@ -1,0 +1,172 @@
+use vitcampus;
+show tables from vitcampus;
+
+select*from worker;
+
+select first_name,department,salary from worker
+where department='admin' and salary>=100000;
+
+select*from worker;
+
+select worker_id, first_name,department,salary from worker
+where worker_id=1 or worker_id=7;
+
+select worker_id, first_name,department,salary from worker
+where worker_id in (1,6,7);
+
+select worker_id, first_name,department,salary from worker
+where worker_id not in (1,6,7);
+
+SELECT *
+FROM WORKER
+WHERE salary BETWEEN 100000 AND 300000
+AND department NOT IN ('HR','ADMIN');
+
+SELECT* FROM WORKER;
+SELECT *
+FROM WORKER
+WHERE salary NOT BETWEEN 300000 AND 700000;
+
+SELECT *
+FROM WORKER
+WHERE salary NOT BETWEEN 300000 AND 700000
+AND department IN ('ACCOUNT');
+
+SELECT *
+FROM WORKER
+WHERE salary NOT BETWEEN 300000 AND 700000
+OR department IN ('ACCOUNT');
+
+SELECT * FROM WORKER;
+
+
+SELECT *
+FROM WORKER
+WHERE salary BETWEEN 50000 AND 100000
+AND department NOT IN ('HR','ACCOUNT');
+
+SELECT *
+FROM WORKER
+WHERE salary BETWEEN 100000 AND 500000;
+
+
+
+DROP TABLE WORKER;
+
+SELECT * FROM WORKER;
+
+SELECT * FROM WORKER where first_name LIKE '_i__a%';
+SELECT * FROM WORKER where first_name LIKE '_i__a_';
+
+DROP TABLE WORKER;
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT,
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Monika', 'Arora', 100000, '14-02-20 09:00:00', 'HR'),
+		(002, 'Niharika', 'Verma', 80000, '14-06-11 09:00:00', 'Admin'),
+		(003, 'Vishal', 'Singhal', 300000, '14-02-20 09:00:00', 'HR'),
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09:00:00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09:00:00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09:00:00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09:00:00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09:00:00', 'Admin');
+        
+SELECT * FROM WORKER;
+
+SELECT *
+FROM Worker
+WHERE FIRST_NAME LIKE 'V%';
+
+SELECT *
+FROM Worker
+WHERE LAST_NAME LIKE '%al';
+
+SELECT *
+FROM Worker
+WHERE DEPARTMENT LIKE '%Admin%';
+
+SELECT *
+FROM Worker;
+
+select min(salary) from worker where department='admin';
+
+select max(salary) from worker where department='admin';
+
+select count(salary) from worker where department='admin';
+select sum(salary) from worker where department='admin';
+select avg(salary) from worker where department='admin';
+
+select min(salary) from worker where department='admin' and first_name not like '%a%';
+select * from worker;
+
+SELECT MAX(SALARY) AS Max_Salary
+FROM Worker
+WHERE DEPARTMENT = 'HR'
+  AND FIRST_NAME NOT LIKE '%i%';
+
+SELECT AVG(SALARY) AS Avg_Salary
+FROM Worker
+WHERE DEPARTMENT = 'Account'
+  AND LAST_NAME NOT LIKE '%n%';
+
+SELECT COUNT(*) AS Total_Workers
+FROM Worker
+WHERE DEPARTMENT = 'Admin'
+  AND FIRST_NAME NOT LIKE '%k%';
+
+SELECT SUM(SALARY) AS Total_Salary
+FROM Worker
+WHERE DEPARTMENT = 'HR'
+  AND FIRST_NAME NOT LIKE '%o%';
+
+SELECT MIN(SALARY) AS Min_Salary,
+       MAX(SALARY) AS Max_Salary,
+       AVG(SALARY) AS Avg_Salary
+FROM Worker
+WHERE DEPARTMENT = 'Account'
+  AND FIRST_NAME NOT LIKE '%v%';
+
+
+
+
+
+select salary from worker
+union all
+select salary from worker;
+
+select*from worker;
+select worker_id as RollNumber from worker;
+select distinct(department) from worker;
+
+select worker_id,first_name,
+case
+when salary>300000 then 'rich people'
+when salary>=100000 and salary<299999 then 'middle'
+else 'poor'
+end
+as status
+from worker;
+
+select min(salary)from worker where department='admin';
+select max(salary)from worker where department='admin';
+
+create view minSalaryAdmin as select min(salary) from worker where department='admin';
+
+create view mAxSalaryAdmin as select max(salary) from worker where department='admin';
+
+create view minSalaryAdmin as select min(salary) from worker where department='admin';
+
+create view mAxSalaryAdmin as select max(salary) from worker where department='admin';
+
+
+select * from minsalaryadmin;
+select * from maxsalaryadmin;
+select* from worker;
