@@ -217,3 +217,28 @@ JOIN DEPARTMENTS D
 WHERE D.DEPT_NAME = 'FINANCE'
   AND E.NAME LIKE '%I%';
 
+
+/*23.
+[MATH + GROUP BY] Calculate the 10% bonus amount for each employee and show the total bonus per department.*/
+select d.dept_name,sum(e.salary*0.10) as total_bonus_amount
+from employees e
+join departments d on e.dept_id=d.dept_id
+group by d.dept_id
+;
+
+/*24.
+[SUBQUERY] List the name of the department that pays the highest total salary.*/
+SELECT D.DEPT_NAME
+FROM DEPARTMENTS D
+WHERE D.DEPT_ID = (SELECT E.DEPT_ID FROM EMPLOYEES E
+GROUP BY DEPT_ID
+ORDER BY SUM(E.SALARY) DESC
+LIMIT 1
+);
+
+/*25.
+[JOINS] Find all employees who report to 'Charlie'.*/
+SELECT E1.NAME AS EMP_NAME, E2.NAME AS MANAGER_NAME
+FROM EMPLOYEES E1
+JOIN EMPLOYEES E2 ON E1.MANAGER_ID = E2.EMP_ID
+WHERE E2.NAME='CHARLIE';
