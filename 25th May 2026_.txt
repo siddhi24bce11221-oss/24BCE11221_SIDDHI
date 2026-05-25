@@ -99,13 +99,6 @@ DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany
     '0': ObjectId('6a147ba3c9e7c1f0b02c92cd')
   }
 }
-WriteResult({"nInserted" : 1})
-ReferenceError: WriteResult is not defined
-db.Employee.insert({name: 'Emp1',address: 'Pune'}) WriteResult({"nInserted" : 1})
-SyntaxError: Missing semicolon. (1:50)
-
-> 1 | db.Employee.insert({name: 'Emp1',address: 'Pune'}) WriteResult({"nInserted" : 1})
-    |                                                   ^
 db.Employee.insert({name: 'Jayanth',address: 'Pune'})
 {
   acknowledged: true,
@@ -138,6 +131,3 @@ db.Employee.find()
   location: 'Chennai'
 }
 vit
-
-
-
