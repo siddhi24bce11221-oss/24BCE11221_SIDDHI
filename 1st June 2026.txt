@@ -1,0 +1,174 @@
+SQL PROGRAM
+
+create database crud;
+show databases;
+use crud;
+CREATE TABLE `user` (
+	`sl_no` INT(5) NULL DEFAULT NULL,
+	`name` VARCHAR(100) NULL DEFAULT NULL,
+	`email` VARCHAR(100) NULL DEFAULT NULL
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
+
+PROJECT STRUCTURE IN ECLIPSE IDE
+
+MYSQL_CRUD
+ src
+  CRUD
+   CRUD_Test.java
+   DB_Connection.java
+ JRE System Library
+ Referenced Libraries
+
+Connection Class to get connection with MySql
+DB_Connection.java
+
+package CRUD;
+import java.sql.Connection;
+import java.sql.DriverManager;
+public class DB_Connection {
+public static void main(String[] args) {
+  DB_Connection obj_DB_Connection=new DB_Connection();
+  System.out.println(obj_DB_Connection.get_connection());
+}
+public Connection get_connection() {
+    Connection connection = null;
+    try {
+
+        Class.forName("com.mysql.cj.jdbc.Driver");  
+
+        connection = DriverManager.getConnection(
+            "jdbc:mysql://localhost:3306/crud", "root", "Sid#8749");
+        System.out.println("Connection successful!");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    return connection;
+}
+}
+
+OUTPUT:
+Connection successful!
+com.mysql.cj.jdbc.ConnectionImpl@3d3fcdb0
+
+
+CRUD_Test.java
+
+package CRUD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+public class CRUD_Test {
+
+public static void main(String[] args) {
+	CRUD_Test objTest=new CRUD_Test();
+        //insert data
+	objTest.create_data("1", "jinu", "jinu@gmail.com");
+	objTest.create_data("2", "jawad", "jawad@gmail.com");
+        //read data
+	objTest.read_data("2");
+        //update data
+	objTest.update_data("2", "22", "jawad2", "jawad2@gmail");
+        //delete data
+	objTest.delete_data("1");
+}
+
+public void create_data(String sl_no,String name,String email){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="insert into user(sl_no,name,email) values (?,?,?)";
+		ps=connection.prepareStatement(query);
+		ps.setString(1, sl_no);
+		ps.setString(2, name);
+		ps.setString(3, email);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void read_data(String sl_no){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	ResultSet rs=null;
+	try {
+		String query="select * from user";
+		ps=connection.prepareStatement(query);
+		//ps.setString(1, sl_no);
+		System.out.println(ps);
+		rs=ps.executeQuery();
+		while(rs.next()){
+		System.out.println("Sl no -"+rs.getString("sl_no"));
+		System.out.println("name -"+rs.getString("name"));
+		System.out.println("email -"+rs.getString("email"));
+		System.out.println("---------------");
+		}
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void update_data(String sl_no,String new_sl_no,String name,String email){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="update user set sl_no=?,name=?,email=? where sl_no=?";
+		ps=connection.prepareStatement(query);
+		ps.setString(1, new_sl_no);
+		ps.setString(2, name);
+		ps.setString(3, email);
+		ps.setString(4, sl_no);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+
+public void delete_data(String sl_no){
+	DB_Connection obj_DB_Connection=new DB_Connection();
+	Connection connection=obj_DB_Connection.get_connection();
+	PreparedStatement ps=null;
+	try {
+		String query="delete from user where sl_no=?";
+		ps=connection.prepareStatement(query);
+		ps.setString(1, sl_no);
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+
+}
+}
+
+OUTPUT:
+Connection successful!
+com.mysql.cj.jdbc.ClientPreparedStatement: insert into user(sl_no,name,email) values ('1','jinu','jinu@gmail.com')
+Connection successful!
+com.mysql.cj.jdbc.ClientPreparedStatement: insert into user(sl_no,name,email) values ('2','jawad','jawad@gmail.com')
+Connection successful!
+com.mysql.cj.jdbc.ClientPreparedStatement: select * from user
+Sl no -1
+name -jinu
+email -jinu@gmail.com
+---------------
+Sl no -2
+name -jawad
+email -jawad@gmail.com
+---------------
+Connection successful!
+com.mysql.cj.jdbc.ClientPreparedStatement: update user set sl_no='22',name='jawad2',email='jawad2@gmail' where sl_no='2'
+Connection successful!
+com.mysql.cj.jdbc.ClientPreparedStatement: delete from user where sl_no='1'
+
+
+
