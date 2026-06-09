@@ -1,0 +1,433 @@
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>cd /
+
+C:\>mkdir data
+
+C:\>\ls
+'\ls' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>cd data
+
+C:\data>mkdir db
+
+C:\data>cd mkdir0
+The system cannot find the path specified.
+
+C:\data>cd db
+
+C:\data\db>
+
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>mkdir C:\data\db0
+A subdirectory or file C:\data\db0 already exists.
+
+C:\Users\siddh>mkdir C:\data\db1
+A subdirectory or file C:\data\db1 already exists.
+
+C:\Users\siddh>mkdir C:\data\db2
+A subdirectory or file C:\data\db2 already exists.
+
+C:\Users\siddh>net stop MongoDB
+The MongoDB Server (MongoDB) service is not started.
+
+More help is available by typing NET HELPMSG 3521.
+
+
+C:\Users\siddh>taskkill /IM mongod.exe /F
+SUCCESS: The process "mongod.exe" with PID 5688 has been terminated.
+SUCCESS: The process "mongod.exe" with PID 12552 has been terminated.
+SUCCESS: The process "mongod.exe" with PID 4092 has been terminated.
+
+C:\Users\siddh>cd
+C:\Users\siddh
+
+C:\Users\siddh>cd data
+
+C:\Users\siddh\data>mkdir log
+
+C:\Users\siddh\data>cd log
+
+C:\Users\siddh\data\log>
+
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\siddh> netstat -ano | findstr 27017
+  TCP    127.0.0.1:27017        0.0.0.0:0              LISTENING       6780
+PS C:\Users\siddh> netstat -ano | findstr 27018
+  TCP    127.0.0.1:27018        0.0.0.0:0              LISTENING       13428
+PS C:\Users\siddh> netstat -ano | findstr 27019
+  TCP    127.0.0.1:27019        0.0.0.0:0              LISTENING       7928
+PS C:\Users\siddh>
+
+
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\siddh> cd c:\data1\config
+PS C:\data1\config> cd "C:\Program Files\MongoDB\Server\4.4\bin"
+cd : Cannot find path 'C:\Program Files\MongoDB\Server\4.4\bin' because it
+does not exist.
+At line:1 char:1
++ cd "C:\Program Files\MongoDB\Server\4.4\bin"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Program Files\MongoDB\Se
+   rver\4.4\bin:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.S
+   etLocationCommand
+
+PS C:\data1\config> cd "C:\Program Files\MongoDB\Server\8.3\bin"
+PS C:\Program Files\MongoDB\Server\8.3\bin> mongod --dbpath "C:\Program Files\MongoDB\Server\4.4\data\db" --logpath "C:\Program Files\MongoDB\Server\4.4\log\mongod.log" --port 27017 --storageEngine wiredTiger --journal --replSet prodrep
+mongod : The term 'mongod' is not recognized as the name of a cmdlet,
+function, script file, or operable program. Check the spelling of the
+name, or if a path was included, verify that the path is correct and try
+again.
+At line:1 char:1
++ mongod --dbpath "C:\Program Files\MongoDB\Server\4.4\data\db" --logpa ...
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (mongod:String) [], CommandN
+   otFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+
+Suggestion [3,General]: The command mongod was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\mongod". See "get-help about_Command_Precedence" for more details.
+PS C:\Program Files\MongoDB\Server\8.3\bin> .\mongod.exe --dbpath "C:\Program Files\MongoDB\Server\8.3\data\db" --logpath "C:\Program Files\MongoDB\Server\8.3\log\mongod.log" --port 27017 --storageEngine wiredTiger --journal --replSet prodrep
+{"t":{"$date":"2026-06-09T23:14:41.180+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":2043232934}}
+Error parsing command line: unrecognised option '--journal'
+try 'C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe --help' for more information
+PS C:\Program Files\MongoDB\Server\8.3\bin> .\mongod.exe --dbpath "C:\Program Files\MongoDB\Server\8.3\data\db" --logpath "C:\Program Files\MongoDB\Server\8.3\log\mongod.log" --port 27017 --storageEngine wiredTiger --journal --replSet prodrep.\mongod.exe --dbpath "C:\Program Files\MongoDB\Server\8.3\data\db" --logpath "C:\Program Files\MongoDB\Server\8.3\log\mongod.log" --port 27017 --storageEngine wiredTiger --replSet prodrep
+{"t":{"$date":"2026-06-09T23:16:13.945+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":2099186758}}
+Error parsing command line: unrecognised option '--journal'
+try 'C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe --help' for more information
+PS C:\Program Files\MongoDB\Server\8.3\bin> netstat -ano | findstr 27017
+  TCP    127.0.0.1:27017        0.0.0.0:0              LISTENING       6780
+PS C:\Program Files\MongoDB\Server\8.3\bin> net stop MongoDB
+The MongoDB Server (MongoDB) service is not started.
+
+More help is available by typing NET HELPMSG 3521.
+
+PS C:\Program Files\MongoDB\Server\8.3\bin> dir "C:\Program Files\MongoDB\Server\8.3\data"
+
+
+    Directory: C:\Program Files\MongoDB\Server\8.3\data
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-06-2026     23:02                diagnostic.data
+d-----        09-06-2026     23:00                journal
+d-----        09-06-2026     23:00                _tmp
+-a----        04-06-2026     01:51          20480 collection-2705de05-1b4d-
+                                                  4c15-ad1c-2d7399d0e41e.wt
+-a----        09-06-2026     20:15          20480 collection-4f95b0b4-3f53-
+                                                  43aa-a829-bc41857d7fbc.wt
+-a----        09-06-2026     20:15          32768 collection-7380d703-dd5b-
+                                                  4ea2-97f5-a044219745d5.wt
+-a----        09-06-2026     23:02          20480 collection-75a6f000-9095-
+                                                  4d8e-a4ad-b1db264d0bce.wt
+-a----        04-06-2026     01:51          12288 collection-76daca83-aa17-
+                                                  4a1e-9dac-f571b9df7d11.wt
+-a----        09-06-2026     20:15           4096 collection-7f3cc2df-a46a-
+                                                  4947-9beb-5d4c741e03ad.wt
+-a----        09-06-2026     20:15          36864 collection-8dc068d6-1f86-
+                                                  4dd9-ac78-186430fa0d9b.wt
+-a----        09-06-2026     23:02           4096 collection-90fd5c9a-9c69-
+                                                  4c4e-ad1f-bb7767491e90.wt
+-a----        09-06-2026     20:15          20480 collection-96ae70af-343a-
+                                                  4b37-917e-d820b1e7d8ab.wt
+-a----        09-06-2026     23:02          20480 collection-9885fab9-5c1e-
+                                                  4103-a453-5e5de11d662d.wt
+-a----        04-06-2026     01:51          32768 collection-9dfd3350-d81a-
+                                                  4d49-a0c5-8118ff100fdc.wt
+-a----        09-06-2026     20:15          36864 collection-9ef44364-6321-
+                                                  486b-85b1-1cf2fdd4f7f9.wt
+-a----        09-06-2026     20:15          36864 collection-a5bb7e2d-e02a-
+                                                  4eee-96f1-2682892b5749.wt
+-a----        09-06-2026     20:15          36864 collection-a99c406b-4a33-
+                                                  4575-a868-2c5efcf7611c.wt
+-a----        09-06-2026     23:02          20480 collection-b40abba4-18ca-
+                                                  4d7f-a9e4-406d479b6fc6.wt
+-a----        09-06-2026     20:15          36864 collection-d3884783-edd0-
+                                                  4179-ba0b-b02325598360.wt
+-a----        09-06-2026     23:02          45056 collection-d7b5f3a8-7815-
+                                                  48ec-93f6-bffd194868a3.wt
+-a----        09-06-2026     23:02          20480 collection-d9c1db5a-d9a5-
+                                                  4c39-ae51-3d75894f8142.wt
+-a----        09-06-2026     20:15          20480 collection-dea1645a-3cc9-
+                                                  4f47-b737-98987985560b.wt
+-a----        09-06-2026     20:15          20480 collection-fd5ff578-bd31-
+                                                  4787-a011-e7a052c87005.wt
+-a----        09-06-2026     20:15          20480 index-171495a3-d702-4bef-
+                                                  9a47-5019219b7a0e.wt
+-a----        09-06-2026     20:15          36864 index-177fc38a-545d-487d-
+                                                  afa1-af1e6e4c110e.wt
+-a----        04-06-2026     01:51          36864 index-1df35471-ec50-4352-
+                                                  a5ac-04230e7c71c9.wt
+-a----        09-06-2026     20:15           4096 index-301cbb7e-3843-4e02-
+                                                  9a39-c494a45b53a5.wt
+-a----        09-06-2026     20:15          24576 index-31eb20f4-5b65-4ca8-
+                                                  90f0-a68433a30f97.wt
+-a----        09-06-2026     20:15          36864 index-3740f973-f0b4-4a8c-
+                                                  b99e-781757d7feed.wt
+-a----        09-06-2026     20:15          20480 index-4b31e59c-1387-4e21-
+                                                  8752-f31098909809.wt
+-a----        09-06-2026     20:15          20480 index-4b4b44b3-4a5d-4286-
+                                                  adb6-ef788ef82ea0.wt
+-a----        09-06-2026     20:15          20480 index-4ca3a05e-1ff8-4e7d-
+                                                  8088-0244f69197af.wt
+-a----        09-06-2026     20:15          36864 index-70a9c249-66a8-4a76-
+                                                  ae87-0136cc617cb6.wt
+-a----        09-06-2026     22:38           4096 index-73f651d9-f40d-42bc-
+                                                  a140-338255eea2ea.wt
+-a----        09-06-2026     22:38          20480 index-82093c28-3fb2-43f1-
+                                                  96d1-12cb0c39c13c.wt
+-a----        09-06-2026     23:02          36864 index-86206d59-9d70-4332-
+                                                  8bd0-b54093ee90f8.wt
+-a----        09-06-2026     22:38          20480 index-8a7dbe7b-16b0-4100-
+                                                  a741-33beb0ee87d8.wt
+-a----        09-06-2026     20:15          20480 index-8bd37575-aac1-41ac-
+                                                  9f8e-33aab18e9a05.wt
+-a----        04-06-2026     01:51          12288 index-9c0df882-205a-41fd-
+                                                  8437-e818806005c9.wt
+-a----        04-06-2026     01:51          32768 index-ac4589fc-c621-4291-
+                                                  a709-26b7cde68135.wt
+-a----        04-06-2026     01:51          20480 index-b00e1be8-3bf0-4672-
+                                                  9408-99bb20c43437.wt
+-a----        09-06-2026     20:15          20480 index-c8682639-99e7-4eb7-
+                                                  9059-60a02693df40.wt
+-a----        09-06-2026     20:15          36864 index-c9e89a28-a512-4373-
+                                                  8448-1270eb20388f.wt
+-a----        09-06-2026     20:15          20480 index-d92183d2-d11b-4706-
+                                                  909e-b24f5349adb9.wt
+-a----        09-06-2026     20:15          20480 index-dc3684d3-6bbf-43a6-
+                                                  ae8f-d4f70fc98acc.wt
+-a----        09-06-2026     23:02          20480 index-e8c0841a-89bb-41ce-
+                                                  ba5f-7e27f14d1c16.wt
+-a----        09-06-2026     23:02          20480 index-e9e11de5-32c0-4d9d-
+                                                  955c-ecaad50085f0.wt
+-a----        09-06-2026     20:15          20480 index-ee41daff-5f37-4c6d-
+                                                  9966-3fde65bdced6.wt
+-a----        09-06-2026     23:02              0 mongod.lock
+-a----        09-06-2026     23:02          32768 sizeStorer.wt
+-a----        15-05-2026     19:51            114 storage.bson
+-a----        15-05-2026     19:51             50 WiredTiger
+-a----        15-05-2026     19:51             21 WiredTiger.lock
+-a----        09-06-2026     23:02           1581 WiredTiger.turtle
+-a----        09-06-2026     23:02         233472 WiredTiger.wt
+-a----        09-06-2026     23:02           4096 WiredTigerHS.wt
+-a----        09-06-2026     23:02          36864 _mdb_catalog.wt
+
+
+PS C:\Program Files\MongoDB\Server\8.3\bin> .\mongod.exe --dbpath "C:\Program Files\MongoDB\Server\8.3\data\db" --logpath "C:\Program Files\MongoDB\Server\8.3\log\mongod.log" --port 27017 --storageEngine wiredTiger --replSet prodrep
+{"t":{"$date":"2026-06-09T23:18:01.253+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":1885330424}}
+{"t":{"$date":"2026-06-09T23:18:01.259+05:30"},"s":"F",  "c":"CONTROL",  "id":20574,   "ctx":"thread1","msg":"Error during global initialization","attr":{"error":{"code":37,"codeName":"FileRenameFailed","errmsg":"Could not rename preexisting log file \"C:\\Program Files\\MongoDB\\Server\\8.3\\log\\mongod.log\" to \"C:\\Program Files\\MongoDB\\Server\\8.3\\log\\mongod.log.2026-06-09T17-48-01\"; run with --logappend or manually remove file: Access is denied"}}}
+PS C:\Program Files\MongoDB\Server\8.3\bin>
+
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\siddh> cd c:\data2\config
+PS C:\data2\config>
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\windows\system32> net stop MongoDB
+>> net start MongoDB
+>>
+The MongoDB Server (MongoDB) service is not started.
+
+More help is available by typing NET HELPMSG 3521.
+
+The MongoDB Server (MongoDB) service is starting..
+The MongoDB Server (MongoDB) service was started successfully.
+
+PS C:\windows\system32> Stop-Service MongoDB
+PS C:\windows\system32> mkdir C:\mongo-primary
+>> mkdir C:\mongo-primary\db
+>> mkdir C:\mongo-primary\log
+>>
+>> mkdir C:\data1
+>> mkdir C:\data1\db
+>> mkdir C:\data1\log
+>>
+>> mkdir C:\data2
+>> mkdir C:\data2\db
+>> mkdir C:\data2\log
+
+
+    Directory: C:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-06-2026     23:20                mongo-primary
+
+
+    Directory: C:\mongo-primary
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-06-2026     23:20                db
+d-----        09-06-2026     23:20                log
+mkdir : An item with the specified name C:\data1 already exists.
+At line:5 char:1
++ mkdir C:\data1
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data1:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+mkdir : An item with the specified name C:\data1\db already exists.
+At line:6 char:1
++ mkdir C:\data1\db
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data1\db:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+mkdir : An item with the specified name C:\data1\log already exists.
+At line:7 char:1
++ mkdir C:\data1\log
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data1\log:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+mkdir : An item with the specified name C:\data2 already exists.
+At line:9 char:1
++ mkdir C:\data2
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data2:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+mkdir : An item with the specified name C:\data2\db already exists.
+At line:10 char:1
++ mkdir C:\data2\db
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data2\db:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+mkdir : An item with the specified name C:\data2\log already exists.
+At line:11 char:1
++ mkdir C:\data2\log
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\data2\log:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Commands.NewItemCommand
+
+
+
+PS C:\windows\system32> dir C:\data1
+>> dir C:\data2
+
+
+    Directory: C:\data1
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-06-2026     23:08                config
+d-----        09-06-2026     23:02                db
+d-----        09-06-2026     23:02                log
+
+
+    Directory: C:\data2
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-06-2026     23:09                config
+d-----        09-06-2026     23:02                db
+d-----        09-06-2026     23:02                log
+
+
+PS C:\windows\system32> netstat -ano | findstr 27017
+  TCP    127.0.0.1:27017        0.0.0.0:0              LISTENING       25596
+  TCP    127.0.0.1:27017        0.0.0.0:0              LISTENING       6780
+PS C:\windows\system32>
+
+
+
+
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\windows\system32> cd "C:\Program Files\MongoDB\Server\8.3\bin"
+PS C:\Program Files\MongoDB\Server\8.3\bin> .\mongod.exe --dbpath "C:\mongo-primary\db" --logpath "C:\mongo-primary\log\mongod.log" --logappend --port 27017 --storageEngine wiredTiger --replSet prodrep
+{"t":{"$date":"2026-06-09T23:22:44.384+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":2369901405}}
+
+
+
+JavaScript
+rs.initiate({
+    _id: "myReplSet",
+    members: [
+        { _id: 0, host: "localhost:27017" },
+        { _id: 1, host: "localhost:27018" },
+        { _id: 2, host: "localhost:27019" }
+    ]
+})
+
+
+rs.add("localhost:27020")
+rs.status()
+rs.add("localhost:27030")
+rs.status()
+
+
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\windows\system32> cd "C:\Program Files\MongoDB\Server\8.3\bin"
+>> .\mongosh.exe --port 27017
+.\mongosh.exe : The term '.\mongosh.exe' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:2 char:1
++ .\mongosh.exe --port 27017
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\mongosh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Program Files\MongoDB\Server\8.3\bin> cd "C:\Program Files\MongoDB\Server\8.3\bin"
+>>
+
+
+
+
+
+
+
+
