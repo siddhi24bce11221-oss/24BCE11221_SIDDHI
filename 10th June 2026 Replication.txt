@@ -1,0 +1,976 @@
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --replSet myReplSet --dbpath C:\data\db0 --port 27017 --bind_ip localhost
+{"t":{"$date":"2026-06-10T01:50:15.555+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":1226959030}}
+{"t":{"$date":"2026-06-10T01:50:15.610+05:30"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"thread1","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-06-10T01:50:15.611+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"AuthorizationRouter","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+{"t":{"$date":"2026-06-10T01:50:15.611+05:30"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"thread1","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":28},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":28},"outgoing":{"minWireVersion":6,"maxWireVersion":28},"isInternalClient":true}}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ThreadPool1","numThreads":0,"minThreads":0,"maxThreads":1}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"thread1","msg":"Multi threading initialized"}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ReadWriteConcernDefaults","numThreads":0,"minThreads":0,"maxThreads":1}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":24052,"port":27017,"dbPath":"C:/data/db0","architecture":"64-bit","host":"Siddhi"}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"E",  "c":"CONTROL",  "id":20557,   "ctx":"initandlisten","msg":"DBException in initAndListen, terminating","attr":{"error":"DBPathInUse: Unable to create/open the lock file: C:\\data\\db0\\mongod.lock (The process cannot access the file because it is being used by another process.). Ensure the user executing mongod is the owner of the lock file and has the appropriate permissions. Also make sure that another mongod instance is not already running on the C:\\data\\db0 directory"}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"REPL",     "id":4784900, "ctx":"initandlisten","msg":"Stepping down the ReplicationCoordinator for shutdown","attr":{"waitTimeMillis":15000}}
+{"t":{"$date":"2026-06-10T01:50:15.613+05:30"},"s":"I",  "c":"REPL",     "id":4794602, "ctx":"initandlisten","msg":"Attempting to enter quiesce mode"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"-",        "id":6371601, "ctx":"initandlisten","msg":"Shutting down the FLE Crud thread pool"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"COMMAND",  "id":4784901, "ctx":"initandlisten","msg":"Shutting down the MirrorMaestro"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"SHARDING", "id":4784902, "ctx":"initandlisten","msg":"Shutting down the WaitForMajorityService"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"-",        "id":7350601, "ctx":"initandlisten","msg":"Shutting down the QueryAnalysisSampler"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"NETWORK",  "id":4784905, "ctx":"initandlisten","msg":"Shutting down the global connection pool"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"REPL",     "id":4784907, "ctx":"initandlisten","msg":"Shutting down the replica set node executor"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"NETWORK",  "id":4784918, "ctx":"initandlisten","msg":"Shutting down the ReplicaSetMonitor"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"SHARDING", "id":9439300, "ctx":"initandlisten","msg":"Shutting down the filtering metadata cache"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"CONTROL",  "id":4784928, "ctx":"initandlisten","msg":"Shutting down the TTL monitor"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"CONTROL",  "id":4784929, "ctx":"initandlisten","msg":"Acquiring the global lock for shutdown"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"-",        "id":4784931, "ctx":"initandlisten","msg":"Dropping the scope cache for shutdown"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"-",        "id":10175800,"ctx":"initandlisten","msg":"Shutting down the standalone executor"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"initandlisten","msg":"Now exiting"}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"CONTROL",  "id":8423404, "ctx":"initandlisten","msg":"mongod shutdown complete","attr":{"Summary of time elapsed":{"Statistics":{"enterTerminalShutdownMillis":0,"stepDownReplCoordMillis":0,"quiesceModeMillis":0,"stopFLECrudMillis":1,"shutDownMirrorMaestroMillis":0,"shutDownWaitForMajorityServiceMillis":0,"shutDownQueryAnalysisSamplerMillis":0,"shutDownGlobalConnectionPoolMillis":0,"shutDownSearchTaskExecutorsMillis":0,"shutDownReplicaSetNodeExecutorMillis":0,"shutDownReplicaSetMonitorMillis":0,"shutDownTTLMonitorMillis":0,"shutDownOtelMetricsMillis":0,"shutDownOtelTracesMillis":0,"shutDownFTDCMillis":0,"shutDownReplicaSetNodeExecutorMillis":0,"closeLockFileMillis":0,"shutDownOCSPMillis":0,"shutdownTaskTotalMillis":1}}}}
+{"t":{"$date":"2026-06-10T01:50:15.614+05:30"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"initandlisten","msg":"Shutting down","attr":{"exitCode":100}}
+
+C:\Users\siddh>mongosh --port 27017
+Current Mongosh Log ID: 6a2875aa684c25e28eabc113
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-10T01:44:18.765+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> rs.initiate({
+|     _id: "myReplSet",
+|     members: [
+|         { _id: 0, host: "localhost:27017" },
+|         { _id: 1, host: "localhost:27018" },
+|         { _id: 2, host: "localhost:27019" }
+|     ]
+| })
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781036478, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781036478, i: 1 })
+}
+myReplSet [direct: secondary] test> rs.status()
+{
+  set: 'myReplSet',
+  date: ISODate('2026-06-09T20:21:28.651Z'),
+  myState: 2,
+  term: Long('0'),
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: Long('2000'),
+  majorityVoteCount: 2,
+  writeMajorityCount: 2,
+  votingMembersCount: 3,
+  writableVotingMembersCount: 3,
+  optimes: {
+    lastCommittedOpTime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    lastCommittedWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    appliedOpTime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    durableOpTime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    writtenOpTime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    lastAppliedWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+    lastDurableWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+    lastWrittenWallTime: ISODate('2026-06-09T20:21:18.216Z')
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781036478, i: 1 }),
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27017',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 430,
+      optime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeDate: ISODate('2026-06-09T20:21:18.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeWrittenDate: ISODate('2026-06-09T20:21:18.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      configVersion: 1,
+      configTerm: 0,
+      self: true,
+      lastHeartbeatMessage: ''
+    },
+    {
+      _id: 1,
+      name: 'localhost:27018',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 10,
+      optime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeDurable: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeWritten: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeDate: ISODate('2026-06-09T20:21:18.000Z'),
+      optimeDurableDate: ISODate('2026-06-09T20:21:18.000Z'),
+      optimeWrittenDate: ISODate('2026-06-09T20:21:18.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastHeartbeat: ISODate('2026-06-09T20:21:28.284Z'),
+      lastHeartbeatRecv: ISODate('2026-06-09T20:21:28.484Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: '',
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      configVersion: 1,
+      configTerm: 0
+    },
+    {
+      _id: 2,
+      name: 'localhost:27019',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 10,
+      optime: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeDurable: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeWritten: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+      optimeDate: ISODate('2026-06-09T20:21:18.000Z'),
+      optimeDurableDate: ISODate('2026-06-09T20:21:18.000Z'),
+      optimeWrittenDate: ISODate('2026-06-09T20:21:18.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:21:18.216Z'),
+      lastHeartbeat: ISODate('2026-06-09T20:21:28.284Z'),
+      lastHeartbeatRecv: ISODate('2026-06-09T20:21:28.484Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: '',
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      configVersion: 1,
+      configTerm: 0
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781036478, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781036478, i: 1 })
+}
+myReplSet [direct: secondary] test> db.hello()
+{
+  topologyVersion: { processId: ObjectId('6a28741a210851b9bf814d70'), counter: Long('6') },
+  hosts: [ 'localhost:27017', 'localhost:27018', 'localhost:27019' ],
+  setName: 'myReplSet',
+  setVersion: 1,
+  isWritablePrimary: true,
+  secondary: false,
+  primary: 'localhost:27017',
+  me: 'localhost:27017',
+  electionId: ObjectId('7fffffff0000000000000001'),
+  lastWrite: {
+    opTime: { ts: Timestamp({ t: 1781036489, i: 17 }), t: Long('1') },
+    lastWriteDate: ISODate('2026-06-09T20:21:29.000Z'),
+    majorityOpTime: { ts: Timestamp({ t: 1781036489, i: 17 }), t: Long('1') },
+    majorityWriteDate: ISODate('2026-06-09T20:21:29.000Z')
+  },
+  maxBsonObjectSize: 16777216,
+  maxMessageSizeBytes: 48000000,
+  maxWriteBatchSize: 100000,
+  localTime: ISODate('2026-06-09T20:21:40.943Z'),
+  logicalSessionTimeoutMinutes: 30,
+  connectionId: 5,
+  minWireVersion: 0,
+  maxWireVersion: 28,
+  readOnly: false,
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781036489, i: 17 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781036489, i: 17 })
+}
+myReplSet [direct: primary] test> use test
+| db.users.insertOne({ name: "TestUser", role: "student" })
+already on db test
+myReplSet [direct: primary] test>
+
+
+
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>mongosh --port 27018
+Current Mongosh Log ID: 6a287633fc3de6c0f9abc113
+Connecting to:          mongodb://127.0.0.1:27018/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-10T01:49:30.529+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+myReplSet [direct: secondary] test> rs.secondaryOk()
+| db.users.find()
+DeprecationWarning: .setSecondaryOk() is deprecated. Use .setReadPref("primaryPreferred") instead
+Setting read preference from "primary" to "primaryPreferred"
+
+myReplSet [direct: secondary] test> db.getMongo().setReadPref("primaryPreferred")
+
+myReplSet [direct: secondary] test> db.users.find()
+
+myReplSet [direct: secondary] test>
+
+
+
+
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --replSet myReplSet --dbpath C:\data\db3 --port 27020 --bind_ip localhost
+{"t":{"$date":"2026-06-10T01:55:27.075+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":3650236658}}
+{"t":{"$date":"2026-06-10T01:55:27.089+05:30"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"thread1","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-06-10T01:55:27.126+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"AuthorizationRouter","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+{"t":{"$date":"2026-06-10T01:55:27.127+05:30"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"thread1","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":28},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":28},"outgoing":{"minWireVersion":6,"maxWireVersion":28},"isInternalClient":true}}}
+{"t":{"$date":"2026-06-10T01:55:27.127+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ThreadPool1","numThreads":0,"minThreads":0,"maxThreads":1}}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"thread1","msg":"Multi threading initialized"}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ReadWriteConcernDefaults","numThreads":0,"minThreads":0,"maxThreads":1}}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":25660,"port":27020,"dbPath":"C:/data/db3","architecture":"64-bit","host":"Siddhi"}}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"E",  "c":"CONTROL",  "id":20557,   "ctx":"initandlisten","msg":"DBException in initAndListen, terminating","attr":{"error":"NonExistentPath: Data directory C:\\data\\db3 not found. Create the missing directory or specify another path using (1) the --dbpath command line option, or (2) by adding the 'storage.dbPath' option in the configuration file."}}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"REPL",     "id":4784900, "ctx":"initandlisten","msg":"Stepping down the ReplicationCoordinator for shutdown","attr":{"waitTimeMillis":15000}}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"REPL",     "id":4794602, "ctx":"initandlisten","msg":"Attempting to enter quiesce mode"}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"-",        "id":6371601, "ctx":"initandlisten","msg":"Shutting down the FLE Crud thread pool"}
+{"t":{"$date":"2026-06-10T01:55:27.128+05:30"},"s":"I",  "c":"COMMAND",  "id":4784901, "ctx":"initandlisten","msg":"Shutting down the MirrorMaestro"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"SHARDING", "id":4784902, "ctx":"initandlisten","msg":"Shutting down the WaitForMajorityService"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"-",        "id":7350601, "ctx":"initandlisten","msg":"Shutting down the QueryAnalysisSampler"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"NETWORK",  "id":4784905, "ctx":"initandlisten","msg":"Shutting down the global connection pool"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"REPL",     "id":4784907, "ctx":"initandlisten","msg":"Shutting down the replica set node executor"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"NETWORK",  "id":4784918, "ctx":"initandlisten","msg":"Shutting down the ReplicaSetMonitor"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"SHARDING", "id":9439300, "ctx":"initandlisten","msg":"Shutting down the filtering metadata cache"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"CONTROL",  "id":4784928, "ctx":"initandlisten","msg":"Shutting down the TTL monitor"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"CONTROL",  "id":4784929, "ctx":"initandlisten","msg":"Acquiring the global lock for shutdown"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"-",        "id":4784931, "ctx":"initandlisten","msg":"Dropping the scope cache for shutdown"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"-",        "id":10175800,"ctx":"initandlisten","msg":"Shutting down the standalone executor"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"initandlisten","msg":"Now exiting"}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"CONTROL",  "id":8423404, "ctx":"initandlisten","msg":"mongod shutdown complete","attr":{"Summary of time elapsed":{"Statistics":{"enterTerminalShutdownMillis":0,"stepDownReplCoordMillis":0,"quiesceModeMillis":0,"stopFLECrudMillis":0,"shutDownMirrorMaestroMillis":0,"shutDownWaitForMajorityServiceMillis":1,"shutDownQueryAnalysisSamplerMillis":0,"shutDownGlobalConnectionPoolMillis":0,"shutDownSearchTaskExecutorsMillis":0,"shutDownReplicaSetNodeExecutorMillis":0,"shutDownReplicaSetMonitorMillis":0,"shutDownTTLMonitorMillis":0,"shutDownOtelMetricsMillis":0,"shutDownOtelTracesMillis":0,"shutDownFTDCMillis":0,"shutDownReplicaSetNodeExecutorMillis":0,"closeLockFileMillis":0,"shutDownOCSPMillis":0,"shutdownTaskTotalMillis":1}}}}
+{"t":{"$date":"2026-06-10T01:55:27.129+05:30"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"initandlisten","msg":"Shutting down","attr":{"exitCode":100}}
+
+C:\Users\siddh>mongosh --port 27017
+Current Mongosh Log ID: 6a2876bfa0933a95e5abc113
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-10T01:44:18.765+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+myReplSet [direct: primary] test> rs.add("localhost:27020")
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781036746, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781036746, i: 1 })
+}
+myReplSet [direct: primary] test> rs.add("localhost:27019")
+MongoServerError[NewReplicaSetConfigurationIncompatible]: Found two member configurations with same host field, members.2.host == members.4.host == localhost:27019
+myReplSet [direct: primary] test> rs.status()
+{
+  set: 'myReplSet',
+  date: ISODate('2026-06-09T20:28:09.370Z'),
+  myState: 1,
+  term: Long('1'),
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: Long('2000'),
+  majorityVoteCount: 2,
+  writeMajorityCount: 2,
+  votingMembersCount: 3,
+  writableVotingMembersCount: 3,
+  optimes: {
+    lastCommittedOpTime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+    lastCommittedWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+    appliedOpTime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+    durableOpTime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+    writtenOpTime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+    lastAppliedWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+    lastDurableWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+    lastWrittenWallTime: ISODate('2026-06-09T20:27:59.553Z')
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781036829, i: 1 }),
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: ISODate('2026-06-09T20:21:29.385Z'),
+    electionTerm: Long('1'),
+    lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    lastSeenWrittenOpTimeAtElection: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1781036478, i: 1 }), t: Long('-1') },
+    numVotesNeeded: 2,
+    priorityAtElection: 1,
+    electionTimeoutMillis: Long('10000'),
+    numCatchUpOps: Long('0'),
+    newTermStartDate: ISODate('2026-06-09T20:21:29.474Z'),
+    wMajorityWriteAvailabilityDate: ISODate('2026-06-09T20:21:29.993Z')
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 831,
+      optime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T20:27:59.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeWrittenDate: ISODate('2026-06-09T20:27:59.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      electionTime: Timestamp({ t: 1781036489, i: 1 }),
+      electionDate: ISODate('2026-06-09T20:21:29.000Z'),
+      configVersion: 2,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    },
+    {
+      _id: 1,
+      name: 'localhost:27018',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 411,
+      optime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeDurable: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeWritten: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T20:27:59.000Z'),
+      optimeDurableDate: ISODate('2026-06-09T20:27:59.000Z'),
+      optimeWrittenDate: ISODate('2026-06-09T20:27:59.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastHeartbeat: ISODate('2026-06-09T20:28:08.790Z'),
+      lastHeartbeatRecv: ISODate('2026-06-09T20:28:08.784Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: '',
+      syncSourceHost: 'localhost:27017',
+      syncSourceId: 0,
+      infoMessage: '',
+      configVersion: 2,
+      configTerm: 1
+    },
+    {
+      _id: 2,
+      name: 'localhost:27019',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 411,
+      optime: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeDurable: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeWritten: { ts: Timestamp({ t: 1781036879, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T20:27:59.000Z'),
+      optimeDurableDate: ISODate('2026-06-09T20:27:59.000Z'),
+      optimeWrittenDate: ISODate('2026-06-09T20:27:59.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastDurableWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T20:27:59.553Z'),
+      lastHeartbeat: ISODate('2026-06-09T20:28:08.790Z'),
+      lastHeartbeatRecv: ISODate('2026-06-09T20:28:08.802Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: '',
+      syncSourceHost: 'localhost:27017',
+      syncSourceId: 0,
+      infoMessage: '',
+      configVersion: 2,
+      configTerm: 1
+    },
+    {
+      _id: 3,
+      name: 'localhost:27020',
+      health: 0,
+      state: 8,
+      stateStr: '(not reachable/healthy)',
+      uptime: 0,
+      optime: { ts: Timestamp({ t: 0, i: 0 }), t: Long('-1') },
+      optimeDurable: { ts: Timestamp({ t: 0, i: 0 }), t: Long('-1') },
+      optimeWritten: { ts: Timestamp({ t: 0, i: 0 }), t: Long('-1') },
+      optimeDate: ISODate('1970-01-01T00:00:00.000Z'),
+      optimeDurableDate: ISODate('1970-01-01T00:00:00.000Z'),
+      optimeWrittenDate: ISODate('1970-01-01T00:00:00.000Z'),
+      lastAppliedWallTime: ISODate('1970-01-01T00:00:00.000Z'),
+      lastDurableWallTime: ISODate('1970-01-01T00:00:00.000Z'),
+      lastWrittenWallTime: ISODate('1970-01-01T00:00:00.000Z'),
+      lastHeartbeat: ISODate('2026-06-09T20:28:05.699Z'),
+      lastHeartbeatRecv: ISODate('1970-01-01T00:00:00.000Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: 'Error connecting to localhost:27020 (127.0.0.1:27020) :: caused by :: onInvoke :: caused by :: No connection could be made because the target machine actively refused it.',
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      configVersion: -1,
+      configTerm: -1
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781036879, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781036879, i: 1 })
+}
+myReplSet [direct: primary] test> rs.conf()
+{
+  _id: 'myReplSet',
+  version: 2,
+  term: 1,
+  members: [
+    {
+      _id: 0,
+      host: 'localhost:27017',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      secondaryDelaySecs: Long('0'),
+      votes: 1
+    },
+    {
+      _id: 1,
+      host: 'localhost:27018',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      secondaryDelaySecs: Long('0'),
+      votes: 1
+    },
+    {
+      _id: 2,
+      host: 'localhost:27019',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      secondaryDelaySecs: Long('0'),
+      votes: 1
+    },
+    {
+      _id: 3,
+      host: 'localhost:27020',
+      arbiterOnly: false,
+      buildIndexes: true,
+      hidden: false,
+      priority: 1,
+      tags: {},
+      secondaryDelaySecs: Long('0'),
+      votes: 1
+    }
+  ],
+  protocolVersion: Long('1'),
+  writeConcernMajorityJournalDefault: true,
+  settings: {
+    chainingAllowed: true,
+    heartbeatIntervalMillis: 2000,
+    heartbeatTimeoutSecs: 10,
+    electionTimeoutMillis: 10000,
+    catchUpTimeoutMillis: -1,
+    catchUpTakeoverDelayMillis: 30000,
+    getLastErrorModes: {},
+    getLastErrorDefaults: { w: 1, wtimeout: 0 },
+    replicaSetId: ObjectId('6a2875be210851b9bf814d75')
+  }
+}
+myReplSet [direct: primary] test> rs.printSecondaryReplicationInfo()
+source: localhost:27018
+{
+  syncedTo: 'Wed Jun 10 2026 01:58:39 GMT+0530 (India Standard Time)',
+  replLag: '0 secs (0 hrs) behind the primary '
+}
+---
+source: localhost:27019
+{
+  syncedTo: 'Wed Jun 10 2026 01:58:39 GMT+0530 (India Standard Time)',
+  replLag: '0 secs (0 hrs) behind the primary '
+}
+---
+source: localhost:27020
+{ 'no replication info, yet.  State': '(not reachable/healthy)' }
+myReplSet [direct: primary] test> use test
+| db.users.insertOne({ name: "ReplicaTest", role: "student" })
+already on db test
+myReplSet [direct: primary] test>
+
+
+
+
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --dbpath C:\data\db --port 27020 --replSet prodrep
+{"t":{"$date":"2026-06-10T01:24:22.044+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":4083363663}}
+{"t":{"$date":"2026-06-10T01:24:22.060+05:30"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"thread1","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-06-10T01:24:22.107+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"AuthorizationRouter","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+{"t":{"$date":"2026-06-10T01:24:22.107+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ThreadPool1","numThreads":0,"minThreads":0,"maxThreads":1}}.......
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --dbpath C:\data2\db --port 27030 --replSet prodrep
+{"t":{"$date":"2026-06-10T01:26:17.325+05:30"},"s":"I",  "c":"-",        "id":8991200, "ctx":"thread1","msg":"Shuffling initializers","attr":{"seed":2642261984}}
+{"t":{"$date":"2026-06-10T01:26:17.336+05:30"},"s":"I",  "c":"CONTROL",  "id":97374,   "ctx":"thread1","msg":"Automatically disabling TLS 1.0 and TLS 1.1, to force-enable TLS 1.1 specify --sslDisabledProtocols 'TLS1_0'; to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+{"t":{"$date":"2026-06-10T01:26:17.378+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"AuthorizationRouter","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+{"t":{"$date":"2026-06-10T01:26:17.379+05:30"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"thread1","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":28},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":28},"outgoing":{"minWireVersion":6,"maxWireVersion":28},"isInternalClient":true}}}
+{"t":{"$date":"2026-06-10T01:26:17.379+05:30"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"thread1","msg":"Starting thread pool","attr":{"poolName":"ThreadPool1","numThreads":0,"minThreads":0,"maxThreads":1}}
+{"t":{"$date":"2026-06-10T01:26:17.380+05:30"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"thread1","msg":"Multi threading initialized"}.......
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>netstat -ano | findstr :27017
+  TCP    127.0.0.1:27017        0.0.0.0:0              LISTENING       15496
+  TCP    127.0.0.1:27017        127.0.0.1:57176        ESTABLISHED     15496
+  TCP    127.0.0.1:57176        127.0.0.1:27017        ESTABLISHED     4016
+
+C:\Users\siddh>mongosh --port 27017
+Current Mongosh Log ID: 6a28695b6360b55f89abc113
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-10T00:57:23.455+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2026-06-10T00:57:23.455+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+------
+
+test> rs.initiate({
+|   _id: "prodrep",
+|   members: [
+|     { _id: 0, host: "localhost:27017" }
+|   ]
+| })
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781033326, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781033326, i: 1 })
+}
+prodrep [direct: secondary] test> rs.initiate({
+|   _id: "prodrep",
+|   members: [
+|     { _id: 0, host: "localhost:27017" }
+|   ]
+| })rs.initiate({
+|   _id: "prodrep",
+|   members: [
+|     { _id: 0, host: "localhost:27017" }
+|   ]
+| })
+Uncaught:
+SyntaxError: Missing semicolon. (6:2)
+
+  4 |     { _id: 0, host: "localhost:27017" }
+  5 |   ]
+> 6 | })rs.initiate({
+    |   ^
+  7 |   _id: "prodrep",
+  8 |   members: [
+  9 |     { _id: 0, host: "localhost:27017" }
+
+prodrep [direct: primary] test> rs.status()
+{
+  set: 'prodrep',
+  date: ISODate('2026-06-09T19:30:49.651Z'),
+  myState: 1,
+  term: Long('1'),
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: Long('2000'),
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+    lastCommittedWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+    appliedOpTime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+    durableOpTime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+    writtenOpTime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+    lastAppliedWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+    lastDurableWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+    lastWrittenWallTime: ISODate('2026-06-09T19:30:46.828Z')
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781033436, i: 1 }),
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: ISODate('2026-06-09T19:28:46.771Z'),
+    electionTerm: Long('1'),
+    lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1781033326, i: 1 }), t: Long('-1') },
+    lastSeenWrittenOpTimeAtElection: { ts: Timestamp({ t: 1781033326, i: 1 }), t: Long('-1') },
+    lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1781033326, i: 1 }), t: Long('-1') },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: Long('10000'),
+    newTermStartDate: ISODate('2026-06-09T19:28:46.799Z'),
+    wMajorityWriteAvailabilityDate: ISODate('2026-06-09T19:28:46.876Z')
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27017',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 206,
+      optime: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T19:30:46.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1781033446, i: 1 }), t: Long('1') },
+      optimeWrittenDate: ISODate('2026-06-09T19:30:46.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+      lastDurableWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T19:30:46.828Z'),
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      electionTime: Timestamp({ t: 1781033326, i: 2 }),
+      electionDate: ISODate('2026-06-09T19:28:46.000Z'),
+      configVersion: 1,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781033446, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781033446, i: 1 })
+}
+prodrep [direct: primary] test> rs.isMaster()
+{
+  topologyVersion: { processId: ObjectId('6a28691b08e201d9992a21b2'), counter: Long('6') },
+  hosts: [ 'localhost:27017' ],
+  setName: 'prodrep',
+  setVersion: 1,
+  ismaster: true,
+  secondary: false,
+  primary: 'localhost:27017',
+  me: 'localhost:27017',
+  electionId: ObjectId('7fffffff0000000000000001'),
+  lastWrite: {
+    opTime: { ts: Timestamp({ t: 1781033466, i: 1 }), t: Long('1') },
+    lastWriteDate: ISODate('2026-06-09T19:31:06.000Z'),
+    majorityOpTime: { ts: Timestamp({ t: 1781033466, i: 1 }), t: Long('1') },
+    majorityWriteDate: ISODate('2026-06-09T19:31:06.000Z')
+  },
+  maxBsonObjectSize: 16777216,
+  maxMessageSizeBytes: 48000000,
+  maxWriteBatchSize: 100000,
+  localTime: ISODate('2026-06-09T19:31:15.137Z'),
+  logicalSessionTimeoutMinutes: 30,
+  connectionId: 5,
+  minWireVersion: 0,
+  maxWireVersion: 28,
+  readOnly: false,
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781033466, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781033466, i: 1 }),
+  isWritablePrimary: true
+}
+prodrep [direct: primary] test>
+
+
+
+Microsoft Windows [Version 10.0.26200.8524]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\siddh>mongosh --port 27020
+Current Mongosh Log ID: 6a286ff707c220435fabc113
+Connecting to:          mongodb://127.0.0.1:27020/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-10T01:25:52.722+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2026-06-10T01:25:52.722+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+------
+
+test> rs.add("localhost:27030")
+MongoServerError[NotYetInitialized]: no replset config has been received
+test> rs.initiate({
+|   _id: "prodrep",
+|   members: [
+|     { _id: 0, host: "localhost:27020" }
+|   ]
+| })
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781035044, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781035044, i: 1 })
+}
+prodrep [direct: secondary] test> rs.status()
+{
+  set: 'prodrep',
+  date: ISODate('2026-06-09T19:57:32.650Z'),
+  myState: 1,
+  term: Long('1'),
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: Long('2000'),
+  majorityVoteCount: 1,
+  writeMajorityCount: 1,
+  votingMembersCount: 1,
+  writableVotingMembersCount: 1,
+  optimes: {
+    lastCommittedOpTime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+    lastCommittedWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+    appliedOpTime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+    durableOpTime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+    writtenOpTime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+    lastAppliedWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+    lastDurableWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+    lastWrittenWallTime: ISODate('2026-06-09T19:57:24.229Z')
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781035044, i: 1 }),
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: ISODate('2026-06-09T19:57:24.076Z'),
+    electionTerm: Long('1'),
+    lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    lastSeenWrittenOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: Long('10000'),
+    newTermStartDate: ISODate('2026-06-09T19:57:24.121Z'),
+    wMajorityWriteAvailabilityDate: ISODate('2026-06-09T19:57:24.183Z')
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27020',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 100,
+      optime: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T19:57:24.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1781035044, i: 18 }), t: Long('1') },
+      optimeWrittenDate: ISODate('2026-06-09T19:57:24.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+      lastDurableWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T19:57:24.229Z'),
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: Timestamp({ t: 1781035044, i: 2 }),
+      electionDate: ISODate('2026-06-09T19:57:24.000Z'),
+      configVersion: 1,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781035044, i: 18 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781035044, i: 18 })
+}
+prodrep [direct: primary] test> rs.add("localhost:27030")
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781035063, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781035063, i: 1 })
+}
+prodrep [direct: primary] test> rs.status()
+{
+  set: 'prodrep',
+  date: ISODate('2026-06-09T19:59:46.249Z'),
+  myState: 1,
+  term: Long('1'),
+  syncSourceHost: '',
+  syncSourceId: -1,
+  heartbeatIntervalMillis: Long('2000'),
+  majorityVoteCount: 2,
+  writeMajorityCount: 2,
+  votingMembersCount: 2,
+  writableVotingMembersCount: 2,
+  optimes: {
+    lastCommittedOpTime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+    lastCommittedWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+    readConcernMajorityOpTime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+    appliedOpTime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+    durableOpTime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+    writtenOpTime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+    lastAppliedWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+    lastDurableWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+    lastWrittenWallTime: ISODate('2026-06-09T19:59:44.175Z')
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781035154, i: 1 }),
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: ISODate('2026-06-09T19:57:24.076Z'),
+    electionTerm: Long('1'),
+    lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    lastSeenWrittenOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1781035044, i: 1 }), t: Long('-1') },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: Long('10000'),
+    newTermStartDate: ISODate('2026-06-09T19:57:24.121Z'),
+    wMajorityWriteAvailabilityDate: ISODate('2026-06-09T19:57:24.183Z')
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27020',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 234,
+      optime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T19:59:44.000Z'),
+      optimeWritten: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+      optimeWrittenDate: ISODate('2026-06-09T19:59:44.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      lastDurableWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: '',
+      electionTime: Timestamp({ t: 1781035044, i: 2 }),
+      electionDate: ISODate('2026-06-09T19:57:24.000Z'),
+      configVersion: 3,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    },
+    {
+      _id: 1,
+      name: 'localhost:27030',
+      health: 1,
+      state: 2,
+      stateStr: 'SECONDARY',
+      uptime: 122,
+      optime: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+      optimeDurable: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+      optimeWritten: { ts: Timestamp({ t: 1781035184, i: 1 }), t: Long('1') },
+      optimeDate: ISODate('2026-06-09T19:59:44.000Z'),
+      optimeDurableDate: ISODate('2026-06-09T19:59:44.000Z'),
+      optimeWrittenDate: ISODate('2026-06-09T19:59:44.000Z'),
+      lastAppliedWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      lastDurableWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      lastWrittenWallTime: ISODate('2026-06-09T19:59:44.175Z'),
+      lastHeartbeat: ISODate('2026-06-09T19:59:45.513Z'),
+      lastHeartbeatRecv: ISODate('2026-06-09T19:59:44.530Z'),
+      pingMs: Long('0'),
+      lastHeartbeatMessage: '',
+      syncSourceHost: 'localhost:27020',
+      syncSourceId: 0,
+      infoMessage: '',
+      configVersion: 3,
+      configTerm: 1
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781035184, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781035184, i: 1 })
+}
+prodrep [direct: primary] test>
