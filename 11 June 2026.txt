@@ -1,0 +1,456 @@
+mongosh:127.0.0.1:27019
+
+rs.initiate({
+  _id: "configReplSet",
+  configsvr: true,
+  members: [
+    { _id: 0, host: "localhost:27019" }
+  ]
+})
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183260, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183260, i: 1 })
+}
+rs.status()
+{
+  },
+  lastStableRecoveryTimestamp: Timestamp({ t: 1781183260, i: 1 }),
+  electionCandidateMetrics: {
+    lastElectionReason: 'electionTimeout',
+    lastElectionDate: 2026-06-11T13:07:40.567Z,
+    electionTerm: Long('1'),
+    lastCommittedOpTimeAtElection: { ts: Timestamp({ t: 1781183260, i: 1 }), t: Long('-1') },
+    lastSeenWrittenOpTimeAtElection: { ts: Timestamp({ t: 1781183260, i: 1 }), t: Long('-1') },
+    lastSeenOpTimeAtElection: { ts: Timestamp({ t: 1781183260, i: 1 }), t: Long('-1') },
+    numVotesNeeded: 1,
+    priorityAtElection: 1,
+    electionTimeoutMillis: Long('10000'),
+    newTermStartDate: 2026-06-11T13:07:40.643Z,
+    wMajorityWriteAvailabilityDate: 2026-06-11T13:07:41.030Z
+  },
+  members: [
+    {
+      _id: 0,
+      name: 'localhost:27019',
+      health: 1,
+      state: 1,
+      stateStr: 'PRIMARY',
+      uptime: 73,
+      optime: { ts: Timestamp({ t: 1781183272, i: 1 }), t: Long('1') },
+      optimeDate: 2026-06-11T13:07:52.000Z,
+      optimeWritten: { ts: Timestamp({ t: 1781183272, i: 1 }), t: Long('1') },
+      optimeWrittenDate: 2026-06-11T13:07:52.000Z,
+      lastAppliedWallTime: 2026-06-11T13:07:52.085Z,
+      lastDurableWallTime: 2026-06-11T13:07:52.085Z,
+      lastWrittenWallTime: 2026-06-11T13:07:52.085Z,
+      syncSourceHost: '',
+      syncSourceId: -1,
+      infoMessage: 'Could not find member to sync from',
+      electionTime: Timestamp({ t: 1781183260, i: 2 }),
+      electionDate: 2026-06-11T13:07:40.000Z,
+      configVersion: 1,
+      configTerm: 1,
+      self: true,
+      lastHeartbeatMessage: ''
+    }
+  ],
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183272, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183272, i: 1 })
+}
+test
+
+
+mongosh:127.0.0.1:27011
+
+rs.initiate({
+  _id: "shard1ReplSet",
+  members: [
+    { _id: 0, host: "localhost:27011" }
+  ]
+})
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183365, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183365, i: 1 })
+}
+test
+
+
+mongosh:127.0.0.1:27012
+
+rs.initiate({
+  _id: "shard2ReplSet",
+  members: [
+    { _id: 0, host: "localhost:27012" }
+  ]
+})
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183412, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183412, i: 1 })
+}
+test
+
+
+mongosh:127.0.0.1:27017
+
+sh.addShard("shard1ReplSet/localhost:27011")
+{
+  shardAdded: 'shard1ReplSet',
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183498, i: 40 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183498, i: 40 })
+}
+sh.addShard("shard2ReplSet/localhost:27012")
+{
+  shardAdded: 'shard2ReplSet',
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183514, i: 34 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183514, i: 34 })
+}
+sh.status()
+shardingVersion
+{
+  _id: ObjectId('6a2ab31cae2bddd5ef6fb941'),
+  clusterId: ObjectId('6a2ab31cae2bddd5ef6fb940')
+}
+shards
+[
+  {
+    _id: 'shard1ReplSet',
+    host: 'shard1ReplSet/localhost:27011',
+    topologyTime: Timestamp({ t: 1781183498, i: 14 }),
+    replSetConfigVersion: -1
+  },
+  {
+    _id: 'shard2ReplSet',
+    host: 'shard2ReplSet/localhost:27012',
+    topologyTime: Timestamp({ t: 1781183514, i: 10 }),
+    replSetConfigVersion: -1
+  }
+]
+active mongoses
+[
+  {
+    '8.3.2': 1
+  }
+]
+autosplit
+{
+  'Currently enabled': 'yes'
+}
+balancer
+{
+  'Currently enabled': 'yes',
+  'Failed balancer rounds in last 5 attempts': 0,
+  'Currently running': 'no',
+  'Migration Results for the last 24 hours': 'No recent migrations'
+}
+shardedDataDistribution
+[
+  {
+    ns: 'config.system.sessions',
+    shards: [
+      {
+        shardName: 'shard1ReplSet',
+        numOrphanedDocs: 0,
+        numOwnedDocuments: 13,
+        ownedSizeBytes: 1287,
+        orphanedSizeBytes: 0
+      }
+    ]
+  }
+]
+databases
+[
+  {
+    database: {
+      _id: 'config',
+      primary: 'config',
+      partitioned: true
+    },
+    collections: {
+      'config.system.sessions': {
+        shardKey: {
+          _id: 1
+        },
+        unique: false,
+        balancing: true,
+        allowMigrations: true,
+        chunkMetadata: [
+          {
+            shard: 'shard1ReplSet',
+            nChunks: 1
+          }
+        ],
+        chunks: [
+          {
+            min: {
+              _id: MinKey()
+            },
+            max: {
+              _id: MaxKey()
+            },
+            'on shard': 'shard1ReplSet',
+            'last modified': Timestamp({ t: 1, i: 0 })
+          }
+        ],
+        tags: []
+      }
+    }
+  }
+]
+sh.enableSharding("eCommerceDB")
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183555, i: 21 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183555, i: 21 })
+}
+sh.shardCollection(
+  "eCommerceDB.orders",
+  { customer_id: "hashed" }
+)
+{
+  collectionsharded: 'eCommerceDB.orders',
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1781183575, i: 39 }),
+    signature: {
+      hash: Binary.createFromBase64('AAAAAAAAAAAAAAAAAAAAAAAAAAA=', 0),
+      keyId: Long('0')
+    }
+  },
+  operationTime: Timestamp({ t: 1781183575, i: 38 })
+}
+use eCommerceDB
+switched to db eCommerceDB
+for(let i=0;i<1000;i++){
+  db.orders.insertOne({
+    customer_id:"cust_"+i,
+    amount:Math.random()*100
+  })
+}
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a2ab47dc932e1357c23d213')
+}
+sh.status()
+shardingVersion
+{
+  _id: ObjectId('6a2ab31cae2bddd5ef6fb941'),
+  clusterId: ObjectId('6a2ab31cae2bddd5ef6fb940')
+}
+shards
+[
+  {
+    _id: 'shard1ReplSet',
+    host: 'shard1ReplSet/localhost:27011',
+    topologyTime: Timestamp({ t: 1781183498, i: 14 }),
+    replSetConfigVersion: -1
+  },
+  {
+    _id: 'shard2ReplSet',
+    host: 'shard2ReplSet/localhost:27012',
+    topologyTime: Timestamp({ t: 1781183514, i: 10 }),
+    replSetConfigVersion: -1
+  }
+]
+active mongoses
+[
+  {
+    '8.3.2': 1
+  }
+]
+autosplit
+{
+  'Currently enabled': 'yes'
+}
+balancer
+{
+  'Currently enabled': 'yes',
+  'Currently running': 'no',
+  'Failed balancer rounds in last 5 attempts': 0,
+  'Migration Results for the last 24 hours': 'No recent migrations'
+}
+shardedDataDistribution
+[
+  {
+    ns: 'config.system.sessions',
+    shards: [
+      {
+        shardName: 'shard1ReplSet',
+        numOrphanedDocs: 0,
+        numOwnedDocuments: 13,
+        ownedSizeBytes: 1287,
+        orphanedSizeBytes: 0
+      }
+    ]
+  },
+  {
+    ns: 'eCommerceDB.orders',
+    shards: [
+      {
+        shardName: 'shard1ReplSet',
+        numOrphanedDocs: 0,
+        numOwnedDocuments: 491,
+        ownedSizeBytes: 30933,
+        orphanedSizeBytes: 0
+      },
+      {
+        shardName: 'shard2ReplSet',
+        numOrphanedDocs: 0,
+        numOwnedDocuments: 509,
+        ownedSizeBytes: 32067,
+        orphanedSizeBytes: 0
+      }
+    ]
+  }
+]
+databases
+[
+              _id: MaxKey()
+            },
+            'on shard': 'shard1ReplSet',
+            'last modified': Timestamp({ t: 1, i: 0 })
+          }
+        ],
+        tags: []
+      }
+    }
+  },
+  {
+    database: {
+      _id: 'eCommerceDB',
+      primary: 'shard2ReplSet',
+      version: {
+        uuid: UUID('caed55fc-610d-49b4-bdd7-05561bdce1f3'),
+        timestamp: Timestamp({ t: 1781183555, i: 9 }),
+        lastMod: 1
+      }
+    },
+    collections: {
+      'eCommerceDB.orders': {
+        shardKey: {
+          customer_id: 'hashed'
+        },
+        unique: false,
+        balancing: true,
+        allowMigrations: true,
+        chunkMetadata: [
+          {
+            shard: 'shard1ReplSet',
+            nChunks: 1
+          },
+          {
+            shard: 'shard2ReplSet',
+            nChunks: 1
+          }
+        ],
+        chunks: [
+          {
+            min: {
+              customer_id: MinKey()
+            },
+            max: {
+              customer_id: 0
+            },
+            'on shard': 'shard2ReplSet',
+            'last modified': Timestamp({ t: 1, i: 0 })
+          },
+          {
+            min: {
+              customer_id: 0
+            },
+            max: {
+              customer_id: MaxKey()
+            },
+            'on shard': 'shard1ReplSet',
+            'last modified': Timestamp({ t: 1, i: 1 })
+          }
+        ],
+        tags: []
+      }
+    }
+  }
+]
+db.orders.getShardDistribution()
+Shard shard2ReplSet at shard2ReplSet/localhost:27012
+{
+  data: '31KiB',
+  docs: 509,
+  chunks: 1,
+  'estimated data per chunk': '31KiB',
+  'estimated docs per chunk': 509
+}
+Shard shard1ReplSet at shard1ReplSet/localhost:27011
+{
+  data: '30KiB',
+  docs: 491,
+  chunks: 1,
+  'estimated data per chunk': '30KiB',
+  'estimated docs per chunk': 491
+}
+Totals
+{
+  data: '62KiB',
+  docs: 1000,
+  chunks: 2,
+  'Shard shard2ReplSet': [
+    '50.9 % data',
+    '50.9 % docs in cluster',
+    '63B avg obj size on shard'
+  ],
+  'Shard shard1ReplSet': [
+    '49.09 % data',
+    '49.1 % docs in cluster',
+    '63B avg obj size on shard'
+  ]
+}
+eCommerceDB
+
+
+

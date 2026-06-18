@@ -1,0 +1,387 @@
+
+Welcome
+mongosh: localhost:27017
+
+>_MONGOSH
+
+use vit 
+switched to db vit
+db.collection.getIndexes()
+MongoServerError[NamespaceNotFound]: ns does not exist: vit.collection
+db.sales.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+db
+vit
+show collections
+books
+Employee
+sales
+Students
+db.books.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+db.books.find()
+{
+  _id: ObjectId('6a1597fbd6a15fc297352bb6'),
+  title: 'MongoDb insertOne',
+  isbn: '0-7617-6154-3'
+}
+{
+  _id: ObjectId('6a159a06d6a15fc297352bb7'),
+  title: 'NoSQL Distilled',
+  isbn: '0-4696-6154-4'
+}
+{
+  _id: ObjectId('6a159a06d6a15fc297352bb8'),
+  title: 'NoSQL in 7 Days',
+  isbn: '0-7655-9554-3'
+}
+{
+  _id: ObjectId('6a159a06d6a15fc297352bb9'),
+  title: 'NoSQL Database',
+  isbn: '0-7698-6165-3'
+}
+db.sales.createIndex(
+   { item: 1, date: 1 },
+   {
+      unique: true,
+      name: "item_date_unique"
+   }
+)
+item_date_unique
+db.sales.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  {
+    v: 2,
+    key: { item: 1, date: 1 },
+    name: 'item_date_unique',
+    unique: true
+  }
+]
+db.users.drop()
+true
+db.users.insertMany([
+   { email:  "john@test.com", name: "john"},
+   { email:  "jane@test.com", name: "jane"},
+]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a241ee069c8e407acf9c71c'),
+    '1': ObjectId('6a241ee069c8e407acf9c71d')
+  }
+}
+db.users.createIndex({email:1},{unique:true});
+email_1
+db.users.insertOne(
+   { email:  "john@test.com", name: "johny"}
+);
+MongoServerError: E11000 duplicate key error collection: vit.users index: email_1 dup key: { email: "john@test.com" }
+db.users.drop()
+true
+db.users.insertMany([
+   { email:  "john@test.com", name: "john"},
+   { email:  "john@test.com", name: "johny"},
+   { email:  "jane@test.com", name: "jane"},
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a241f5669c8e407acf9c71f'),
+    '1': ObjectId('6a241f5669c8e407acf9c720'),
+    '2': ObjectId('6a241f5669c8e407acf9c721')
+  }
+}
+db.users.createIndex({email: 1},{unique:true})
+MongoServerError[DuplicateKey]: Index build failed: 3ef0a96f-c432-4f5c-8e9a-13cd9c513843: Collection vit.users ( 0f17c428-f4f3-4b93-84a0-63d6def3ea1e ) :: caused by :: E11000 duplicate key error collection: vit.users index: email_1 dup key: { email: "john@test.com" }
+db.users.deleteOne({name:'johny', email: 'john@test.com'});
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.users.createIndex({email: 1},{unique:true})
+email_1
+db.locations.insertOne({
+	address: "Downtown San Jose, CA, USA",
+	lat: 37.335480,
+	long: -121.893028
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a241fca69c8e407acf9c722')
+}
+db.locations.createIndex({
+	lat: 1,
+	long: 1
+},{ unique: true });
+lat_1_long_1
+db.locations.insertOne({
+	address: "Dev Bootcamp, San Jose, CA, USA",
+	lat: 37.335480,
+	long: -122.893028
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a24202369c8e407acf9c723')
+}
+db.locations.insertOne({
+	address: "Central San Jose, CA, USA",
+	lat: 37.335480,
+	long: -121.893028
+})
+MongoServerError: E11000 duplicate key error collection: vit.locations index: lat_1_long_1 dup key: { lat: 37.33548, long: -121.893028 }
+db.sales.createIndex({ item: 1, size: 1 }, { unique: true })
+MongoServerError[DuplicateKey]: Index build failed: fa8b55c4-946e-4eb4-8996-506dde6dd3da: Collection vit.sales ( a0f154bc-f74f-42cc-8a54-a896edd2cb62 ) :: caused by :: E11000 duplicate key error collection: vit.sales index: item_1_size_1 dup key: { item: "Americanos", size: "Grande" }
+db.enrollments.createIndex({ studentId: 1, courseId: 1 }, { unique: true })
+studentId_1_courseId_1
+db.enrollments.insertOne({ studentId: "S001", courseId: "CS101" })   
+db.enrollments.insertOne({ studentId: "S001", courseId: "CS102" })   
+db.enrollments.insertOne({ studentId: "S001", courseId: "CS101" })
+MongoServerError: E11000 duplicate key error collection: vit.enrollments index: studentId_1_courseId_1 dup key: { studentId: "S001", courseId: "CS101" }
+db.employees.createIndex({ company: 1, email: 1 }, { unique: true })
+company_1_email_1
+db.employees.insertOne({ company: "Microsoft", email: "alice@ms.com" })   
+db.employees.insertOne({ company: "Google", email: "alice@ms.com" })  
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a2425e169c8e407acf9c729')
+}
+db.movies.createIndex({ title: 1, year: 1 })
+title_1_year_1
+db.movies.find({title: /valley/gi, year: 2014}).explain('executionStats');
+BSONError: The regular expression option [g] is not supported
+db.movies.find({ title: /valley/i, year: 2014 }).explain('executionStats');
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'vit.movies',
+    parsedQuery: {
+      '$and': [
+        {
+          year: {
+            '$eq': 2014
+          }
+        },
+        {
+          title: BSONRegExp('valley', 'i')
+        }
+      ]
+    },
+    indexFilterSet: false,
+    queryHash: 'A324F105',
+    planCacheShapeHash: 'A324F105',
+    planCacheKey: 'A2528435',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'FETCH',
+      nss: 'vit.movies',
+      inputStage: {
+        stage: 'IXSCAN',
+        filter: {
+          title: BSONRegExp('valley', 'i')
+        },
+        nss: 'vit.movies',
+        keyPattern: {
+          title: 1,
+          year: 1
+        },
+        indexName: 'title_1_year_1',
+        isMultiKey: false,
+        multiKeyPaths: {
+          title: [],
+          year: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          title: [
+            '["", {})',
+            '[/valley/i, /valley/i]'
+db.movies.find({title:/valley/gi}).explain('executionStats');
+BSONError: The regular expression option [g] is not supported
+db.movies.find({year: 2014}).explain('executionStats');
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'vit.movies',
+    parsedQuery: {
+      year: {
+        '$eq': 2014
+      }
+    },
+    indexFilterSet: false,
+    queryHash: '82E400C1',
+    planCacheShapeHash: '82E400C1',
+    planCacheKey: '5F2A8919',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'COLLSCAN',
+      filter: {
+        year: {
+          '$eq': 2014
+        }
+      },
+      nss: 'vit.movies',
+      direction: 'forward'
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 0,
+    executionTimeMillis: 0,
+    totalKeysExamined: 0,
+    totalDocsExamined: 0,
+    executionStages: {
+      isCached: false,
+      stage: 'COLLSCAN',
+      filter: {
+        year: {
+          '$eq': 2014
+        }
+      },
+      nReturned: 0,
+      executionTimeMillisEstimate: 0,
+      works: 1,
+      advanced: 0,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      nss: 'vit.movies',
+      direction: 'forward',
+      docsExamined: 0
+    }
+  },
+  queryShapeHash: 'B11C8E34838EF05C70CBB7A39AC455D6881D6FF06D32B608BA96EE611794FE56',
+  command: {
+    find: 'movies',
+db.movies.find({title:/valley/i}).explain('executionStats');
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'vit.movies',
+    parsedQuery: {
+      title: BSONRegExp('valley', 'i')
+    },
+    indexFilterSet: false,
+    queryHash: '7DEDCDE2',
+    planCacheShapeHash: '7DEDCDE2',
+    planCacheKey: 'F135D492',
+    optimizationTimeMillis: 0,
+    maxIndexedOrSolutionsReached: false,
+    maxIndexedAndSolutionsReached: false,
+    maxScansToExplodeReached: false,
+    prunedSimilarIndexes: false,
+    winningPlan: {
+      isCached: false,
+      stage: 'FETCH',
+      nss: 'vit.movies',
+      inputStage: {
+        stage: 'IXSCAN',
+        filter: {
+          title: BSONRegExp('valley', 'i')
+        },
+        nss: 'vit.movies',
+        keyPattern: {
+          title: 1,
+          year: 1
+        },
+        indexName: 'title_1_year_1',
+        isMultiKey: false,
+        multiKeyPaths: {
+          title: [],
+          year: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          title: [
+            '["", {})',
+            '[/valley/i, /valley/i]'
+          ],
+          year: [
+            '[MinKey, MaxKey]'
+          ]
+        }
+      }
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 0,
+    executionTimeMillis: 0,
+    totalKeysExamined: 0,
+    totalDocsExamined: 0,
+    executionStages: {
+      isCached: false,
+      stage: 'FETCH',
+      nReturned: 0,
+      executionTimeMillisEstimate: 0,
+      works: 1,
+      advanced: 0,
+      needTime: 0,
+      needYield: 0,
+db.collection.dropIndexes()
+MongoServerError[NamespaceNotFound]: ns not found vit.collection
+db.movies.createIndex({year: 1})
+year_1
+db.movies.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1, year: 1 }, name: 'title_1_year_1' },
+  { v: 2, key: { year: 1 }, name: 'year_1' }
+]
+db.movies.dropIndex('year_1')
+{ nIndexesWas: 3, ok: 1 }
+db.movies.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1, year: 1 }, name: 'title_1_year_1' }
+]
+db.movies.createIndex({runtime: -1})
+runtime_-1
+db.movies.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1, year: 1 }, name: 'title_1_year_1' },
+  { v: 2, key: { runtime: -1 }, name: 'runtime_-1' }
+]
+db.movies.dropIndex({runtime: -1});
+{ nIndexesWas: 3, ok: 1 }
+db.movies.createIndex({year: 1})
+year_1
+db.movies.createIndex({runtime: 1})
+runtime_1
+db.movies.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1, year: 1 }, name: 'title_1_year_1' },
+  { v: 2, key: { year: 1 }, name: 'year_1' },
+  { v: 2, key: { runtime: 1 }, name: 'runtime_1' }
+]
+db.movies.dropIndexes()
+{
+  nIndexesWas: 4,
+  msg: 'non-_id indexes dropped for collection',
+  ok: 1
+}
+vit
